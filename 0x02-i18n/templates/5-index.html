@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html lang="{{ get_locale() }}">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ gettext('home_title') }}</title>
-  </head>
-  <body>
-    <h1>{{ gettext('home_header') }}</h1>
+    <title>{% trans %}Welcome{% endtrans %}</title>
+</head>
+<body>
     {% if g.user %}
-    <p>{{ gettext('logged_in_as', username=g.user.name) }}</p>
+        <p>{% trans %}You are logged in as {{ g.user.name }}.{% endtrans %}</p>
     {% else %}
-    <p>{{ gettext('not_logged_in') }}</p>
+        <p>{% trans %}You are not logged in.{% endtrans %}</p>
     {% endif %}
-  </body>
+</body>
 </html>
